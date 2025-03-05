@@ -61,7 +61,7 @@ const App = () => {
       default:
         return (
           <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white">
-            <h1 className="text-4xl font-bold mb-6">Tailwind UI Library Showcases</h1>
+            <h1 className="text-4xl font-bold mb-6">Tailwind UI Library Showcase</h1>
             <p className="text-xl mb-8 text-center max-w-2xl">
               Explore popular Tailwind CSS-based UI libraries through interactive dashboard examples.
               Select a library from the navigation to begin.
@@ -80,7 +80,7 @@ const App = () => {
             </div>
             <div className="mt-12 text-gray-400 flex items-center">
               <a 
-                href="https://github.com/tailwind-ui-showcases" 
+                href="https://github.com/ant3869/tailwind-ui-showcase" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center hover:text-white transition-colors"
@@ -122,7 +122,7 @@ const App = () => {
             ))}
             
             <a 
-              href="https://github.com/tailwind-ui-showcases" 
+              href="https://github.com/ant3869/tailwind-ui-showcase" 
               target="_blank"
               rel="noopener noreferrer" 
               className="ml-2 p-1.5 rounded-md text-gray-300 hover:bg-gray-700 transition-colors"

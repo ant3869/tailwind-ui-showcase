@@ -262,8 +262,6 @@ const BulmaDashboard = () => {
             </div>
             
             {/* Additional navbar items would go here */}
-          </div>
-          </div>
             
             <div className={`navbar-item has-dropdown ${activeDropdown === 'admin' ? 'is-active' : ''}`}>
               <a 
@@ -293,7 +291,8 @@ const BulmaDashboard = () => {
                 </a>
               </div>
             </div>
-
+          </div>
+            
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="field has-addons">
@@ -350,6 +349,7 @@ const BulmaDashboard = () => {
               </div>
             </div>
           </div>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -449,94 +449,64 @@ const BulmaDashboard = () => {
                 <span>Customer Report</span>
               </div>
             </div>
-            
-            <div className={`navbar-item has-dropdown ${activeDropdown === 'admin' ? 'is-active' : ''}`}>
-              <a 
-                className="navbar-link"
-                style={darkStyles.navbar}
-                onClick={() => toggleDropdown('admin')}
-              >
-                <span className="icon-text">
-                  <Icon name="cogs" />
-                  <span>Administration</span>
-                </span>
-              </a>
-
-              <div className="navbar-dropdown" style={darkStyles.dropdown}>
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  User Management
-                </a>
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  Permissions
-                </a>
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  System Settings
-                </a>
-                <hr className="navbar-divider" style={darkStyles.divider} />
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  Audit Logs
-                </a>
+          </div>
+          
+          <div className="navbar-item">
+            <div className="field has-addons">
+              <div className="control">
+                <input 
+                  className="input is-small" 
+                  type="text" 
+                  placeholder="Search..." 
+                  style={darkStyles.input}
+                />
+              </div>
+              <div className="control">
+                <button className="button is-small is-primary" aria-label="Search" title="Search">
+                  <Icon name="search" />
+                </button>
               </div>
             </div>
           </div>
-
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="field has-addons">
-                <div className="control">
-                  <input 
-                    className="input is-small" 
-                    type="text" 
-                    placeholder="Search..." 
-                    style={darkStyles.input}
-                  />
-                </div>
-                <div className="control">
-                  <button className="button is-small is-primary" aria-label="Search" title="Search">
-                    <Icon name="search" />
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link" style={darkStyles.navbar}>
-                <span className="icon-text">
-                  <Icon name="bell" />
-                  <span className="tag is-danger is-rounded is-small">3</span>
-                </span>
+          
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link" style={darkStyles.navbar}>
+              <span className="icon-text">
+                <Icon name="bell" />
+                <span className="tag is-danger is-rounded is-small">3</span>
+              </span>
+            </a>
+            <div className="navbar-dropdown is-right" style={darkStyles.dropdown}>
+              <a className="navbar-item" style={{ color: '#ffffff' }}>
+                <div className="is-size-7">New order received</div>
+                <div className="is-size-7 has-text-grey-light">5 minutes ago</div>
               </a>
-              <div className="navbar-dropdown is-right" style={darkStyles.dropdown}>
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  <div className="is-size-7">New order received</div>
-                  <div className="is-size-7 has-text-grey-light">5 minutes ago</div>
-                </a>
-                <hr className="navbar-divider" style={darkStyles.divider} />
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  <div className="is-size-7">Server alert: CPU usage high</div>
-                  <div className="is-size-7 has-text-grey-light">12 minutes ago</div>
-                </a>
-                <hr className="navbar-divider" style={darkStyles.divider} />
-                <a className="navbar-item" style={{ color: '#ffffff' }}>
-                  <div className="is-size-7">New customer registered</div>
-                  <div className="is-size-7 has-text-grey-light">1 hour ago</div>
-                </a>
-              </div>
+              <hr className="navbar-divider" style={darkStyles.divider} />
+              <a className="navbar-item" style={{ color: '#ffffff' }}>
+                <div className="is-size-7">Server alert: CPU usage high</div>
+                <div className="is-size-7 has-text-grey-light">12 minutes ago</div>
+              </a>
+              <hr className="navbar-divider" style={darkStyles.divider} />
+              <a className="navbar-item" style={{ color: '#ffffff' }}>
+                <div className="is-size-7">New customer registered</div>
+                <div className="is-size-7 has-text-grey-light">1 hour ago</div>
+              </a>
             </div>
-            
-            <div className="navbar-item">
-              <div className="buttons">
-                <button className="button is-primary">
-                  <strong>New Item</strong>
-                </button>
-                <button className="button" style={darkStyles.button}>
-                  <Icon name="user" />
-                  <span>Profile</span>
-                </button>
-              </div>
+          </div>
+          
+          <div className="navbar-item">
+            <div className="buttons">
+              <button className="button is-primary">
+                <strong>New Item</strong>
+              </button>
+              <button className="button" style={darkStyles.button}>
+                <Icon name="user" />
+                <span>Profile</span>
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
       {/* Breadcrumb */}
       <nav className="breadcrumb p-3" style={{ backgroundColor: '#161616' }} aria-label="breadcrumbs">
@@ -1214,11 +1184,10 @@ const BulmaDashboard = () => {
             <button className="button" style={darkStyles.button} onClick={() => setIsModalOpen(false)}>Cancel</button>
           </footer>
         </div>
-        </div>
-        </div>
-        </div>
-      );
-    };
-    
+      </div>
+      </div>
+    );
+  };
+  
 
 export default BulmaDashboard;
