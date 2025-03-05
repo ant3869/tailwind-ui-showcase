@@ -1,4 +1,4 @@
-# Tailwind UI Library Showcases
+# Tailwind UI Library Showcase
 This project showcases five popular Tailwind CSS-based UI libraries with interactive dashboard examples:
 
 - shadcn/ui
@@ -13,28 +13,6 @@ This project showcases five popular Tailwind CSS-based UI libraries with interac
 - Cult UI
 - Next UI
 
-## Project Structure
-```
-tailwind-ui-showcases/
-├── public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── components/
-│   │   ├── AceternityDashboard.jsx
-│   │   ├── ChakraDashboard.jsx
-│   │   ├── FrankenDashboard.jsx
-│   │   ├── ParkDashboard.jsx
-│   │   └── ShadcnDashboard.jsx
-│   ├── App.jsx
-│   ├── index.jsx
-│   └── styles.css
-├── .gitignore
-├── package.json
-├── README.md
-├── tailwind.config.js
-└── vite.config.js
-```
 
 ## Setup Instructions
 1. Clone the repository:
