@@ -1,5 +1,5 @@
 # Tailwind UI Library Showcase
-This project showcases five popular Tailwind CSS-based UI libraries with interactive dashboard examples:
+This project showcases popular Tailwind CSS-based UI libraries with interactive dashboard examples:
 
 - shadcn/ui
 - Chakra UI
@@ -35,6 +35,7 @@ This project showcases five popular Tailwind CSS-based UI libraries with interac
 
 ## Dependencies
 - React
+- Typescript
 - Vite
 - Tailwind CSS
 - Lucide React (for icons)
