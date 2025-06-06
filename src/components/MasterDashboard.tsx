@@ -17,6 +17,11 @@ const MasterDashboard: React.FC = () => {
   const [tab, setTab] = useState('tab1');
   const [toast, setToast] = useState(false);
   const [otp, setOtp] = useState(['', '', '', '']);
+  const [autocomplete, setAutocomplete] = useState('');
+  const [selectValue, setSelectValue] = useState('a');
+  const [numberValue, setNumberValue] = useState(5);
+  const [textareaValue, setTextareaValue] = useState('');
+  const [timeValue, setTimeValue] = useState('');
 
   // helper for otp input
   const handleOtpChange = (index: number, value: string) => {
@@ -51,7 +56,14 @@ const MasterDashboard: React.FC = () => {
 
       {/* Autocomplete */}
       <div>
-        <input type="text" list="cities" placeholder="Autocomplete" className="border p-1 rounded w-48" />
+        <input
+          type="text"
+          list="cities"
+          placeholder="Autocomplete"
+          className="border p-1 rounded w-48"
+          value={autocomplete}
+          onChange={e => setAutocomplete(e.target.value)}
+        />
         <datalist id="cities">
           <option value="New York" />
           <option value="London" />
@@ -125,7 +137,13 @@ const MasterDashboard: React.FC = () => {
       <div className="relative w-16 h-16">
         <svg viewBox="0 0 36 36" className="w-full h-full">
           <path d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#e5e7eb" strokeWidth="2" />
-          <path d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#3b82f6" strokeWidth="2" strokeDasharray="${rangeValue},100" />
+          <path
+            d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831"
+            fill="none"
+            stroke="#3b82f6"
+            strokeWidth="2"
+            strokeDasharray={`${rangeValue},100`}
+          />
         </svg>
         <span className="absolute inset-0 flex items-center justify-center text-sm">{rangeValue}%</span>
       </div>
@@ -170,7 +188,11 @@ const MasterDashboard: React.FC = () => {
       <a href="https://example.com" className="text-blue-600 underline">Example Link</a>
 
       {/* Listbox / Select */}
-      <select className="border p-1 rounded" defaultValue="a">
+      <select
+        className="border p-1 rounded"
+        value={selectValue}
+        onChange={e => setSelectValue(e.target.value)}
+      >
         <option value="a">Option A</option>
         <option value="b">Option B</option>
         <option value="c">Option C</option>
@@ -188,7 +210,12 @@ const MasterDashboard: React.FC = () => {
       )}
 
       {/* Number Input */}
-      <input type="number" className="border p-1 rounded w-20" defaultValue={5} />
+      <input
+        type="number"
+        className="border p-1 rounded w-20"
+        value={numberValue}
+        onChange={e => setNumberValue(Number(e.target.value))}
+      />
 
       {/* Pagination */}
       <div className="flex space-x-1 items-center">
@@ -275,23 +302,28 @@ const MasterDashboard: React.FC = () => {
       </div>
 
       {/* Textarea */}
-      <textarea className="border rounded p-1 w-64" rows={3} placeholder="Textarea" />
+      <textarea
+        className="border rounded p-1 w-64"
+        rows={3}
+        placeholder="Textarea"
+        value={textareaValue}
+        onChange={e => setTextareaValue(e.target.value)}
+      />
 
       {/* Time Input */}
-      <input type="time" className="border p-1 rounded" />
+      <input
+        type="time"
+        className="border p-1 rounded"
+        value={timeValue}
+        onChange={e => setTimeValue(e.target.value)}
+      />
 
       {/* Tooltip */}
       <div className="relative inline-block group">
         <button className="border px-2 py-1 rounded">Hover me</button>
         <span className="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">Tooltip</span>
       </div>
-import React from 'react';
 
-const MasterDashboard = () => {
-  return (
-    <div className="p-8 space-y-4">
-      <h1 className="text-2xl font-bold">Master Dashboard</h1>
-      <p className="text-gray-400">Shared dashboard content</p>
     </div>
   );
 };
