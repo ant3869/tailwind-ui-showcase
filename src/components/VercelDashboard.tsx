@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const VercelDashboard = () => (
-  <div className="bg-black min-h-screen text-white font-sans">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-black min-h-screen text-white font-sans" />
 );
 
 export default VercelDashboard;

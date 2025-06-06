@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const AceternityDashboard = () => (
-  <div className="bg-black text-white min-h-screen font-sans">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-black text-white min-h-screen font-sans" />
 );
 
 export default AceternityDashboard;

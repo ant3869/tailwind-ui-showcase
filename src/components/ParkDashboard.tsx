@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const ParkDashboard = () => (
-  <div className="bg-slate-950 text-slate-50 min-h-screen font-sans">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-slate-950 text-slate-50 min-h-screen font-sans" />
 );
 
 export default ParkDashboard;

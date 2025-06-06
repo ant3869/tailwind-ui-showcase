@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const FrankenDashboard = () => (
-  <div className="bg-zinc-900 text-zinc-100 min-h-screen font-mono">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-zinc-900 text-zinc-100 min-h-screen font-mono" />
 );
 
 export default FrankenDashboard;

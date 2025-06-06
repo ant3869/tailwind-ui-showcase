@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const ShadcnDashboard = () => (
-  <div className="bg-slate-950 text-slate-50 min-h-screen flex">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-slate-950 text-slate-50 min-h-screen flex" />
 );
 
 export default ShadcnDashboard;

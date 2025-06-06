@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const ChakraDashboard = () => (
-  <div className="bg-gray-900 text-gray-100 min-h-screen flex font-sans">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-gray-900 text-gray-100 min-h-screen flex font-sans" />
 );
 
 export default ChakraDashboard;

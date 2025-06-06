@@ -1,10 +1,11 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const NextuiDashboard = () => (
-  <div className="flex flex-col" style={{ backgroundColor: '#0F1011', color: '#ECEDEE', minHeight: '100vh' }}>
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper
+    className="flex flex-col"
+    style={{ backgroundColor: '#0F1011', color: '#ECEDEE', minHeight: '100vh' }}
+  />
 );
 
 export default NextuiDashboard;

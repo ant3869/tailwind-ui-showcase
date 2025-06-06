@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const ReactAriaDashboard = () => (
-  <div className="bg-gray-900 text-white min-h-screen">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="bg-gray-900 text-white min-h-screen" />
 );
 
 export default ReactAriaDashboard;

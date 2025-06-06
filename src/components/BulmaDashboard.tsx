@@ -1,10 +1,8 @@
 import React from 'react';
-import MasterDashboard from './MasterDashboard';
+import DashboardWrapper from './DashboardWrapper';
 
 const BulmaDashboard = () => (
-  <div className="dashboard-app-container">
-    <MasterDashboard />
-  </div>
+  <DashboardWrapper className="dashboard-app-container" />
 );
 
 export default BulmaDashboard;
