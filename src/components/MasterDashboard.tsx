@@ -285,6 +285,13 @@ const MasterDashboard: React.FC = () => {
         <button className="border px-2 py-1 rounded">Hover me</button>
         <span className="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">Tooltip</span>
       </div>
+import React from 'react';
+
+const MasterDashboard = () => {
+  return (
+    <div className="p-8 space-y-4">
+      <h1 className="text-2xl font-bold">Master Dashboard</h1>
+      <p className="text-gray-400">Shared dashboard content</p>
     </div>
   );
 };
