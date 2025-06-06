@@ -13,6 +13,7 @@ import TremorDashboard from './components/TremorDashboard';
 import CultuiDashboard from './components/CultuiDashboard';
 import BulmaDashboard from './components/BulmaDashboard';
 import VercelDashboard from './components/VercelDashboard';
+import WelcomePage from './components/WelcomePage';
 
 const App = () => {
   const [activeLibrary, setActiveLibrary] = useState('welcome');
@@ -60,36 +61,10 @@ const App = () => {
         return <VercelDashboard />;
       default:
         return (
-          <div className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white">
-            <h1 className="text-4xl font-bold mb-6">Tailwind UI Library Showcase</h1>
-            <p className="text-xl mb-8 text-center max-w-2xl">
-              Explore popular Tailwind CSS-based UI libraries through interactive dashboard examples.
-              Select a library from the navigation to begin.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl">
-              {libraries.slice(1).map((lib) => (
-                <button
-                  key={lib.id}
-                  className="p-6 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors flex flex-col items-center"
-                  onClick={() => setActiveLibrary(lib.id)}
-                >
-                  <h2 className="text-xl font-bold mb-2">{lib.name}</h2>
-                  <ChevronRight className="mt-2" />
-                </button>
-              ))}
-            </div>
-            <div className="mt-12 text-gray-400 flex items-center">
-              <a 
-                href="https://github.com/ant3869/tailwind-ui-showcase" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center hover:text-white transition-colors"
-              >
-                <Github className="mr-2 h-5 w-5" />
-                View on GitHub
-              </a>
-            </div>
-          </div>
+          <WelcomePage
+            libraries={libraries}
+            setActiveLibrary={setActiveLibrary}
+          />
         );
     }
   };
