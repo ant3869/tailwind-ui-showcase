@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const lineData = [
@@ -19,9 +18,36 @@ const barData = [
   { name: 'Q4', value: 880 },
 ];
 
-const MasterDashboard = () => {
+const MasterDashboard: React.FC = () => {
+  const [accordionOpen, setAccordionOpen] = useState(false);
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [checkboxGroup, setCheckboxGroup] = useState<string[]>([]);
+  const [selectedDate, setSelectedDate] = useState('');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [radioValue, setRadioValue] = useState('one');
+  const [rangeValue, setRangeValue] = useState(50);
+  const [switchOn, setSwitchOn] = useState(false);
+  const [tab, setTab] = useState('tab1');
+  const [toast, setToast] = useState(false);
+  const [otp, setOtp] = useState(['', '', '', '']);
+  const [autocomplete, setAutocomplete] = useState('');
+  const [selectValue, setSelectValue] = useState('a');
+  const [numberValue, setNumberValue] = useState(5);
+  const [textareaValue, setTextareaValue] = useState('');
+  const [timeValue, setTimeValue] = useState('');
+
+  const handleOtpChange = (index: number, value: string) => {
+    const newOtp = [...otp];
+    newOtp[index] = value.slice(-1);
+    setOtp(newOtp);
+  };
+
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-8 text-gray-900 dark:text-gray-100">
+      {/* Top stats and charts */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-gray-800 rounded-lg p-4 text-center">
           <h3 className="text-sm text-gray-400">Total Revenue</h3>
@@ -70,40 +96,7 @@ const MasterDashboard = () => {
           </div>
         </div>
       </div>
-import React, { useState } from 'react';
 
-// Simple components demonstrating many UI widgets using Tailwind
-const MasterDashboard: React.FC = () => {
-  // state hooks
-  const [accordionOpen, setAccordionOpen] = useState(false);
-  const [checkboxChecked, setCheckboxChecked] = useState(false);
-  const [checkboxGroup, setCheckboxGroup] = useState<string[]>([]);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [popoverOpen, setPopoverOpen] = useState(false);
-  const [radioValue, setRadioValue] = useState('one');
-  const [rangeValue, setRangeValue] = useState(50);
-  const [switchOn, setSwitchOn] = useState(false);
-  const [tab, setTab] = useState('tab1');
-  const [toast, setToast] = useState(false);
-  const [otp, setOtp] = useState(['', '', '', '']);
-  const [autocomplete, setAutocomplete] = useState('');
-  const [selectValue, setSelectValue] = useState('a');
-  const [numberValue, setNumberValue] = useState(5);
-  const [textareaValue, setTextareaValue] = useState('');
-  const [timeValue, setTimeValue] = useState('');
-
-  // helper for otp input
-  const handleOtpChange = (index: number, value: string) => {
-    const newOtp = [...otp];
-    newOtp[index] = value.slice(-1);
-    setOtp(newOtp);
-  };
-
-  return (
-    <div className="p-4 space-y-8 text-gray-900 dark:text-gray-100">
       {/* Navbar */}
       <nav className="flex items-center justify-between bg-gray-200 dark:bg-gray-800 p-2 rounded">
         <div className="font-bold">Master Dashboard</div>
@@ -164,7 +157,7 @@ const MasterDashboard: React.FC = () => {
         <button className="px-3 py-1 border rounded">Secondary</button>
       </div>
 
-      {/* Calendar (simple table) */}
+      {/* Calendar */}
       <table className="border-collapse w-56 text-center">
         <thead>
           <tr>
@@ -196,9 +189,14 @@ const MasterDashboard: React.FC = () => {
         <div className="mt-2 space-x-2">
           {['A','B','C'].map(val => (
             <label key={val} className="inline-flex items-center space-x-1">
-              <input type="checkbox" value={val} checked={checkboxGroup.includes(val)} onChange={e=>{
-                if(e.target.checked){setCheckboxGroup([...checkboxGroup,val]);}else{setCheckboxGroup(checkboxGroup.filter(x=>x!==val));}
-              }} />
+              <input
+                type="checkbox"
+                value={val}
+                checked={checkboxGroup.includes(val)}
+                onChange={e=>{
+                  if(e.target.checked){setCheckboxGroup([...checkboxGroup,val]);}else{setCheckboxGroup(checkboxGroup.filter(x=>x!==val));}
+                }}
+              />
               <span>{val}</span>
             </label>
           ))}
@@ -337,8 +335,8 @@ const MasterDashboard: React.FC = () => {
       <label className="flex items-center space-x-2">
         <span>Switch</span>
         <input type="checkbox" checked={switchOn} onChange={e=>setSwitchOn(e.target.checked)} className="hidden" />
-        <span onClick={()=>setSwitchOn(!switchOn)} className={`w-10 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer ${switchOn ? 'bg-green-400' : ''}`}>
-          <span className={`bg-white w-4 h-4 rounded-full transform ${switchOn ? 'translate-x-5' : ''}`} />
+        <span onClick={()=>setSwitchOn(!switchOn)} className={`w-10 h-5 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer ${switchOn ? 'bg-green-400' : ''}`}>\
+          <span className={`bg-white w-4 h-4 rounded-full transform ${switchOn ? 'translate-x-5' : ''}`} />\
         </span>
       </label>
 
@@ -395,7 +393,6 @@ const MasterDashboard: React.FC = () => {
         <button className="border px-2 py-1 rounded">Hover me</button>
         <span className="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2">Tooltip</span>
       </div>
-
     </div>
   );
 };
