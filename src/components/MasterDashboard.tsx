@@ -34,6 +34,8 @@ const MasterDashboard: React.FC = () => {
   const [tab, setTab] = useState('tab1');
   const [toast, setToast] = useState(false);
   const [otp, setOtp] = useState(['', '', '', '']);
+  const [badgeCount, setBadgeCount] = useState(1);
+  const [loading, setLoading] = useState(false);
   const [autocomplete, setAutocomplete] = useState('');
   const [selectValue, setSelectValue] = useState('a');
   const [numberValue, setNumberValue] = useState(5);
@@ -143,7 +145,13 @@ const MasterDashboard: React.FC = () => {
       {/* Avatar and Badge */}
       <div className="flex items-center space-x-2">
         <img src="https://i.pravatar.cc/40" className="rounded-full" />
-        <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">Badge</span>
+        <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">{badgeCount}</span>
+        <button
+          className="px-2 py-0.5 border rounded text-xs"
+          onClick={() => setBadgeCount(badgeCount + 1)}
+        >
+          +
+        </button>
       </div>
 
       {/* Breadcrumbs */}
@@ -340,7 +348,17 @@ const MasterDashboard: React.FC = () => {
       <div className="my-4" />
 
       {/* Spinner */}
-      <div className="border-4 border-blue-500 border-t-transparent rounded-full w-8 h-8 animate-spin" />
+      <div className="flex items-center space-x-2">
+        <button
+          className="px-2 py-1 border rounded"
+          onClick={() => setLoading(!loading)}
+        >
+          {loading ? 'Stop' : 'Start'} Spinner
+        </button>
+        {loading && (
+          <div className="border-4 border-blue-500 border-t-transparent rounded-full w-8 h-8 animate-spin" />
+        )}
+      </div>
 
       {/* Switch */}
       <label className="flex items-center space-x-2">
