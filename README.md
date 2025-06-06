@@ -9,7 +9,7 @@ This project showcases popular Tailwind CSS-based UI libraries with interactive 
 - Bulma UI
 - React Aria
 - Tremor UI
-- Varcel UI
+- Vercel UI
 - Cult UI
 - Next UI
 
