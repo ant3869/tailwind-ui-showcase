@@ -26,6 +26,7 @@ const MasterDashboard: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [alertVisible, setAlertVisible] = useState(true);
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [radioValue, setRadioValue] = useState('one');
   const [rangeValue, setRangeValue] = useState(50);
@@ -38,6 +39,7 @@ const MasterDashboard: React.FC = () => {
   const [numberValue, setNumberValue] = useState(5);
   const [textareaValue, setTextareaValue] = useState('');
   const [timeValue, setTimeValue] = useState('');
+  const [page, setPage] = useState(1);
 
   const handleOtpChange = (index: number, value: string) => {
     const newOtp = [...otp];
@@ -106,10 +108,12 @@ const MasterDashboard: React.FC = () => {
       </nav>
 
       {/* Alert */}
-      <div className="bg-red-200 text-red-900 p-3 rounded flex justify-between">
-        <span>Alert message</span>
-        <button onClick={() => alert('Alert closed')}>X</button>
-      </div>
+      {alertVisible && (
+        <div className="bg-red-200 text-red-900 p-3 rounded flex justify-between">
+          <span>Alert message</span>
+          <button onClick={() => setAlertVisible(false)}>X</button>
+        </div>
+      )}
 
       {/* Accordion */}
       <div className="border rounded">
@@ -289,9 +293,16 @@ const MasterDashboard: React.FC = () => {
 
       {/* Pagination */}
       <div className="flex space-x-1 items-center">
-        {[1,2,3].map(n=> (
-          <button key={n} className="px-2 py-1 border rounded" onClick={()=>alert('Page '+n)}>{n}</button>
+        {[1,2,3].map(n => (
+          <button
+            key={n}
+            className={`px-2 py-1 border rounded ${page===n ? 'bg-blue-600 text-white' : ''}`}
+            onClick={() => setPage(n)}
+          >
+            {n}
+          </button>
         ))}
+        <span className="ml-2 text-sm">Page: {page}</span>
       </div>
 
       {/* Popover */}
