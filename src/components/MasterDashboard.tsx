@@ -126,20 +126,29 @@ const MasterDashboard: React.FC = () => {
       </div>
 
       {/* Autocomplete */}
-      <div>
+      <div className="relative">
         <input
           type="text"
-          list="cities"
           placeholder="Autocomplete"
           className="border p-1 rounded w-48"
           value={autocomplete}
           onChange={e => setAutocomplete(e.target.value)}
         />
-        <datalist id="cities">
-          <option value="New York" />
-          <option value="London" />
-          <option value="Tokyo" />
-        </datalist>
+        {autocomplete && (
+          <ul className="absolute left-0 mt-1 w-48 border bg-white dark:bg-gray-700 rounded shadow text-sm">
+            {['New York', 'London', 'Tokyo']
+              .filter(c => c.toLowerCase().includes(autocomplete.toLowerCase()))
+              .map(city => (
+                <li
+                  key={city}
+                  className="px-2 py-1 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600"
+                  onClick={() => setAutocomplete(city)}
+                >
+                  {city}
+                </li>
+              ))}
+          </ul>
+        )}
       </div>
 
       {/* Avatar and Badge */}
@@ -231,7 +240,17 @@ const MasterDashboard: React.FC = () => {
       </div>
 
       {/* Date Picker */}
-      <input type="date" value={selectedDate} onChange={e=>setSelectedDate(e.target.value)} className="border p-1 rounded" />
+      <div className="space-y-1">
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={e => setSelectedDate(e.target.value)}
+          className="border p-1 rounded"
+        />
+        {selectedDate && (
+          <p className="text-sm text-gray-600 dark:text-gray-300">Selected: {selectedDate}</p>
+        )}
+      </div>
 
       {/* Dropdown */}
       <div className="relative inline-block">
@@ -324,8 +343,11 @@ const MasterDashboard: React.FC = () => {
       </div>
 
       {/* Progress */}
-      <div className="w-64 h-2 bg-gray-200 rounded">
-        <div className="h-full bg-blue-600" style={{width: `${rangeValue}%`}} />
+      <div className="space-y-1">
+        <div className="w-64 h-2 bg-gray-200 rounded">
+          <div className="h-full bg-blue-600" style={{ width: `${rangeValue}%` }} />
+        </div>
+        <span className="text-sm text-gray-600 dark:text-gray-300">{rangeValue}%</span>
       </div>
 
       {/* Radio Group */}
@@ -339,7 +361,17 @@ const MasterDashboard: React.FC = () => {
       </div>
 
       {/* Slider */}
-      <input type="range" min="0" max="100" value={rangeValue} onChange={e=>setRangeValue(Number(e.target.value))} className="w-64" />
+      <div className="space-y-1">
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={rangeValue}
+          onChange={e => setRangeValue(Number(e.target.value))}
+          className="w-64"
+        />
+        <span className="text-sm text-gray-600 dark:text-gray-300">Value: {rangeValue}</span>
+      </div>
 
       {/* Snippet */}
       <pre className="bg-gray-100 dark:bg-gray-800 p-2 rounded text-xs overflow-x-auto">npm install my-library</pre>
