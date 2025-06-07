@@ -52,3 +52,17 @@ Select a library name in the header to load its dashboard. The master layout sta
 
 ## License
 MIT
+
+## Deploying to GitHub Pages
+
+You can publish the static build with **GitHub Pages** using the included
+workflow:
+
+1. Push the repository to GitHub and enable "GitHub Pages" in the repository
+   settings. Choose the **GitHub Actions** option as the source.
+2. Every push to the `main` branch will automatically build the site and deploy
+   it to the `gh-pages` environment. The workflow sets the correct base path so
+   the app loads from `https://<user>.github.io/<repo>/`.
+
+The workflow is defined in `.github/workflows/deploy.yml` and requires no
+manual steps once GitHub Pages is enabled.
