@@ -64,5 +64,11 @@ workflow:
    it to the `gh-pages` environment. The workflow sets the correct base path so
    the app loads from `https://<user>.github.io/<repo>/`.
 
+If the deployed page is blank, double-check that **GitHub Pages** is
+configured to use the GitHub Actions workflow and not a branch build. The
+`vite.config.js` file now sets the base path to `/tailwind-ui-showcase/`,
+ensuring assets load correctly when hosted at
+`https://<user>.github.io/tailwind-ui-showcase/`.
+
 The workflow is defined in `.github/workflows/deploy.yml` and requires no
 manual steps once GitHub Pages is enabled.
